@@ -192,7 +192,7 @@ type ChartSetting struct {
 	ShowLabels                         bool      `json:"showLabels,omitempty"`
 	ShowRawValues                      bool      `json:"showRawValues,omitempty"`
 	SortValuesDescending               bool      `json:"sortValuesDescending,omitempty"`
-	SparklineDecimalPrecision          int       `json:"sparklineDecimalPrecision,omitempty"`
+	SparklineDecimalPrecision          int       `json:"sparklineDecimalPrecision"`
 	SparklineDisplayColor              string    `json:"sparklineDisplayColor,omitempty"`
 	SparklineDisplayFontSize           string    `json:"sparklineDisplayFontSize,omitempty"`
 	SparklineDisplayHorizontalPosition string    `json:"sparklineDisplayHorizontalPosition,omitempty"`
@@ -239,6 +239,7 @@ const baseDashboardPath = "/api/v2/dashboard"
 // UnmarshalJSON is a custom JSON unmarshaller for an Dashboard, used in order to
 // populate the Tags field in a more intuitive fashion
 func (a *Dashboard) UnmarshalJSON(b []byte) error {
+	fmt.Println("Testing logs")
 	type tags struct {
 		CustomerTags []string `json:"customerTags,omitempty"`
 	}
